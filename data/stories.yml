@@ -1,14 +1,27 @@
-version: "3.1"
-
 stories:
-- story: greet and goodbye
+- story: greet user
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: goodbye
-  - action: utter_goodbye
+    - intent: greet
+    - action: utter_greet
 
-- story: ask if bot
+- story: goodbye user
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: ask plant care
+  steps:
+    - intent: ask_plant_care
+    - action: utter_ask_plant_care
+
+- story: ask specific plant care
+  steps:
+    - intent: ask_specific_plant_care
+      entities:
+        - plant_type: "succulent"
+    - action: utter_ask_specific_plant_care
+
+- story: fallback
+  steps:
+    - intent: out_of_scope
+    - action: utter_default

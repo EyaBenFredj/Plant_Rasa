@@ -1,22 +1,72 @@
 version: "3.1"
 
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - bot_challenge
+entities:
+  - plant_type
+  - care_action
+  - plant_problem
+
+slots:
+  plant_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: plant_type
+
+  care_action:
+    type: text
+    mappings:
+      - type: from_text
+
+  plant_problem:
+    type: text
+    mappings:
+      - type: from_text
 
 responses:
-  utter_greet:
-    - text: "Hello! How can I help you?"
-  utter_goodbye:
-    - text: "Goodbye! Have a great day."
-  utter_iamabot:
-    - text: "I am a Rasa-powered chatbot."
+  utter_ask_plant_care:
+    - text: "Plants need regular watering, sunlight, and well-drained soil. Make sure to know the specific needs of your plant type."
 
-actions: []
+  utter_ask_specific_plant_care:
+    - text: "For caring for {plant_type}, make sure to provide the appropriate water, light, and soil conditions."
+
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+    - text: "Hi there! What can I help you with?"
+    - text: "Hey! How may I help you today?"
+
+  utter_goodbye:
+    - text: "Goodbye! Have a great day!"
+    - text: "See you later! Take care!"
+    - text: "Bye-bye! Come back anytime."
+
+  utter_default:
+    - text: "I'm sorry, I didn't understand that. Could you rephrase your question?"
+    - text: "I didn't get that. Can you ask in a different way?"
+
+  utter_thank_you:
+    - text: "You're welcome!"
+    - text: "Glad I could help!"
+    - text: "Anytime! Feel free to ask more questions."
+
+  utter_plant_problem_response:
+    - text: "It sounds like your plant is experiencing {plant_problem}. Consider adjusting water, light, or soil conditions."
+
+actions:
+  - action_default_fallback
+  - action_plant_care_advice
+  - action_handle_plant_problem
+
+forms:
+  plant_care_form:
+    required_slots:
+      - plant_type
+      - care_action
+
+  plant_problem_form:
+    required_slots:
+      - plant_type
+      - plant_problem
 
 session_config:
-  session_expiration_time: 60
+  session_expiration_time: 60  # Session expires after 60 minutes
   carry_over_slots_to_new_session: true

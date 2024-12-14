@@ -1,37 +1,89 @@
 version: "3.1"
 
 nlu:
+- intent: ask_plant_care
+  examples: |
+    - How do I take care of a plant?
+    - How should I look after my plants?
+    - What's the best way to care for houseplants?
+    - How do I keep my plants healthy?
+    - Can you give me some tips for plant care?
+    - What do I need to do to care for plants indoors?
+    - How often should I water my plants?
+    - What are general care instructions for plants?
+    - What do plants need to thrive?
+    - How do I maintain indoor plants?
+    - How can I help my plants grow?
+    - Tell me how to care for my houseplants.
+    - What are some tips for keeping plants alive?
+
+- intent: ask_specific_plant_care
+  examples: |
+    - How do I take care of a [succulent](plant_type)?
+    - Tell me about [ferns](plant_type).
+    - How do I water a [cactus](plant_type)?
+    - What are the care instructions for [cacti](plant_type)?
+    - How much sunlight do [succulents](plant_type) need?
+    - What's the best soil for [ferns](plant_type)?
+    - How do I fertilize a [cactus](plant_type)?
+    - How often should I water my [succulent](plant_type)?
+    - How do I prevent [ferns](plant_type) from drying out?
+    - What type of pot is best for a [succulent](plant_type)?
+    - How do I care for a [bonsai tree](plant_type)?
+    - How much water does a [cactus](plant_type) need?
+
 - intent: greet
   examples: |
-    - hello
-    - hi
-    - hey
-    - good morning
-    - good evening
+    - Hi
+    - Hello
+    - Hey there
+    - Good morning
+    - Good afternoon
+    - Hi there!
+    - Hey!
+    - What's up?
+    - Greetings
+    - Howdy
 
 - intent: goodbye
   examples: |
-    - bye
-    - goodbye
-    - see you later
-    - take care
+    - Bye
+    - Goodbye
+    - See you later
+    - Farewell
+    - Have a good day!
+    - Take care
+    - Bye-bye
+    - See you soon!
+    - Later!
 
-- intent: affirm
+- intent: out_of_scope
   examples: |
-    - yes
-    - indeed
-    - that's right
-    - correct
+    - What is the weather today?
+    - Tell me a joke.
+    - Who won the soccer game?
+    - What's the capital of France?
+    - Can you sing a song?
+    - What's 2 + 2?
+    - What's happening in the news?
+    - Who is the president?
+    - What movies are playing?
+    - How do airplanes fly?
 
-- intent: deny
+- intent: thank_you
   examples: |
-    - no
-    - never
-    - I don't think so
-    - not at all
+    - Thank you
+    - Thanks a lot!
+    - I appreciate it
+    - Thanks
+    - Thank you so much
+    - Many thanks!
 
-- intent: bot_challenge
+- intent: ask_what_is_plant
   examples: |
-    - are you a bot?
-    - are you human?
-    - am I talking to a real person?
+    - What is a plant?
+    - Can you define a plant?
+    - Explain what a plant is.
+    - Tell me what a plant is.
+    - What do you mean by plant?
+    - Describe a plant.
