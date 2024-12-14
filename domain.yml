@@ -1,0 +1,22 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you?"
+  utter_goodbye:
+    - text: "Goodbye! Have a great day."
+  utter_iamabot:
+    - text: "I am a Rasa-powered chatbot."
+
+actions: []
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
